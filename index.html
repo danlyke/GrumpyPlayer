@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Music Player</title>
+    <link rel="stylesheet" type="text/css" href="styling.css">
+  </head>
+  <body>
+    <div id="pagecontainer" class="row">
+      <div id="foldercontainer" class="column">
+        <div id="folderscrollcontainer" style="overflow-y: scroll">
+          <div id="tree">
+          </div>
+        </div>
+      </div> <!-- end of #foldercontainer -->
+      
+      <div id="playercontainer" class="column">
+        <div id="transport">
+          <span id="transport_play">⏵</span>
+          <span id="transport_pause">⏸</span>
+          <span id="transport_previous">⏮</span>
+          <span id="transport_next">⏭</span>
+        </div> <!-- end of #transport -->
+      
+        <div id="playing" >
+        </div> <!-- end of #playing -->
+        <div id="playlistcontrols" >
+          <span id="playlist_shuffle">🔀</span>
+          <input type="checkbox" id="playlist_loop"><label for="playlist_loop">🔁</label>
+          <span id="playlist_clear">✕</span>
+        </div> <!-- end of playlistcontrols -->
+        <div id="playlist" >
+        </div>
+      </div>  <!-- end of #playercontainer -->
+      
+    </div> <!-- end of #pagecontainer -->
+
+    <script src="player.js"></script>
+    </script>
+  </body>
+</html>

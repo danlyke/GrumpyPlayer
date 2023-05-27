@@ -1,0 +1,42 @@
+
+.contents {
+    margin-left: 1em;
+}
+
+.row {
+    border: 1px solid yellow;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+    border: 1px solid cyan;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+
+#foldercontainer {
+    border: 1px solid red;
+    overflow-y: scroll;
+    max-height: 90vh;
+    width: 50%;
+    float: left;
+}
+
+#playercontainer {
+    width: 50%;
+}
+
+
+#transport {
+    font-size: 24px;
+}
+
+#playlistcontrols {
+    font-size: 24px;
+}
