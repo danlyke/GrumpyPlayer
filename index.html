@@ -16,20 +16,23 @@
       
       <div id="playercontainer" class="column">
         <div id="transport">
-          <span id="transport_play">⏵</span>
+<!--          <span id="transport_play">⏵</span>
           <span id="transport_pause">⏸</span>
           <span id="transport_previous">⏮</span>
-          <span id="transport_next">⏭</span>
+          <span id="transport_next">⏭</span> -->
+          <audio id="player" controls="1" onended="onPlayerEnded(event)">
         </div> <!-- end of #transport -->
       
         <div id="playing" >
         </div> <!-- end of #playing -->
         <div id="playlistcontrols" >
-          <span id="playlist_shuffle">🔀</span>
+<!--          <span id="playlist_shuffle" onclick="shufflePlaylist(event)">🔀</span> -->
           <input type="checkbox" id="playlist_loop"><label for="playlist_loop">🔁</label>
-          <span id="playlist_clear">✕</span>
+          <span id="playlist_clear" onclick="clearPlaylist(event)">✕</span>
         </div> <!-- end of playlistcontrols -->
-        <div id="playlist" >
+        <div id="playlistcontainer">
+          <div id="playlist" >
+          </div>
         </div>
       </div>  <!-- end of #playercontainer -->
       

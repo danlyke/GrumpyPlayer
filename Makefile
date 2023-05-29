@@ -1,0 +1,2 @@
+all :
+	jshint player.js

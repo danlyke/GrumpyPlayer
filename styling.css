@@ -1,37 +1,58 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+audio {
+    width: 100%;
+}
+
 
 .contents {
     margin-left: 1em;
 }
 
 .row {
-    border: 1px solid yellow;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
+//    border: 1px solid yellow;
+    display: flex;
 }
 
 .column {
-    border: 1px solid cyan;
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
+//    border: 1px solid cyan;
+    flex: 50%;
 }
 
-
 #foldercontainer {
-    border: 1px solid red;
+//    border: 1px solid red;
     overflow-y: scroll;
     max-height: 90vh;
-    width: 50%;
-    float: left;
+}
+
+#playlistcontainer {
+//    border: 1px solid purple;
+    overflow-y: scroll;
+    max-height: 80vh;
 }
 
 #playercontainer {
     width: 50%;
 }
 
+.playlist_path {
+    display: none;
+}
+
+.active_playlist_item {
+    background-color: blue;
+}
+
+.playlist_item {
+    margin-top: 8px;
+}
+
+.playlist_remove_item {
+    margin-right: 16px;
+}
 
 #transport {
     font-size: 24px;
@@ -40,3 +61,9 @@
 #playlistcontrols {
     font-size: 24px;
 }
+
+
+.disclosure {
+    margin-right: 16px;
+}
+
