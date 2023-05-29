@@ -17,7 +17,7 @@ function playSong(path, name) {
 
 function stopSong() {
   let player = document.getElementById('player');
-  pause();
+  player.pause();
 }
 
 
@@ -155,6 +155,7 @@ function playlistElementFor(path,name) {
 
 
 function clearPlaylist(event) {
+  stopSong();
   let els = document.getElementsByClassName('playlist_item');
   while (els.length > 0) {
     let el = els[0];
