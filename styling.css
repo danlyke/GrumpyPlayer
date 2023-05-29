@@ -22,7 +22,7 @@ audio {
     flex: 50%;
 }
 
-#foldercontainer {
+#folderscrollparent {
 //    border: 1px solid red;
     overflow-y: scroll;
     max-height: 90vh;

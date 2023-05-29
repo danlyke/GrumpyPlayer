@@ -275,13 +275,32 @@ function loadPathAndThen(path, then) {
   r.send();
 }
 
+function populateJumpToWith(name, child) {
+  let c = name.substr(0,1).toUpperCase();
+  let parentEl = document.getElementById('folderjumpbuttons');
+  let newId = `folderjumpbutton_${c}`;
+  let childEl = document.getElementById(newId);
+  if (!childEl) {
+    childEl = document.createElement('span');
+    childEl.classList.add('folderjumpbutton');
+    childEl.id = newId;
+    childEl.innerText = c;
+    childEl.onclick = (event) => {
+      child.scrollIntoView({
+        block: "start",
+        behavior: "auto"
+      });
+    };
+    parentEl.appendChild(childEl);
+  }
+}
 
-function loadPathIntoDiv(path, div) {
+function loadPathIntoDiv(path, div, populateJumpTo) {
   loadPathAndThen(path,
                   (text) => {
                     div.innerHTML = '';
                     parseTextLinesWithPath(text,path,
-                                           (url,name) => { div.appendChild(elementForDirectory(url,name)); },
+                                           (url,name) => { let child = elementForDirectory(url,name); div.appendChild(child); if (populateJumpTo) { populateJumpToWith(name,child);} },
                                            (url,name) => { div.appendChild(elementForSong(url,name)); },
                                            (image) => { addImageToTitleDiv(addUrlToPath(image,path,div)); });
                   });
@@ -290,7 +309,7 @@ function loadPathIntoDiv(path, div) {
 
 function start() {
   let div = document.getElementById('tree');
-  loadPathIntoDiv('./Music/', div);
+  loadPathIntoDiv('./Music/', div, true);
 }
 
 // wait for page to load before signalling Mesh
