@@ -75,6 +75,7 @@ function elementForDirectory(path, name) {
 
 function playNextPlaylistItem() {
   let currentPath;
+  
   {
     let els = document.getElementsByClassName('active_playlist_item');
     for (let el of els) {
@@ -163,8 +164,17 @@ function clearPlaylist(event) {
 
 
 function addFileToPlaylist(path, name) {
-  let el = document.getElementById('playlist');
-  el.appendChild(playlistElementFor(path, name));
+  let els = document.getElementsByClassName('playlist_item');
+  for (let el of els) {
+    let thisPath = el.getElementsByClassName('playlist_path')[0].innerText;
+    if (thisPath === path) {
+      return;
+    }
+  }
+  {
+    let el = document.getElementById('playlist');
+    el.appendChild(playlistElementFor(path, name));
+  }
 }
 
 function elementForSong(path, name) {
