@@ -211,24 +211,17 @@ function addUrlToPath(url, path) {
 }
 
 function parseTextLinesWithPath(text, path, onDirectory, onFile, onImage) {
-  const regex = /<a href=".*?">.*?<\/a>/g;
-  let image;
-  const lines = text.match(regex);
-  for (let line of lines) {
-    const arr = line.split('">');
-    let name = arr[1];
-    if (name.endsWith('</a>')) {
-      name = name.substr(0, name.length - 4);
-    }
-    let url = arr[0];
-    if (url.startsWith('<a href="')) {
-      url = url.substr(9);
-    }
+  let parentEl = document.createElement('div');
+  parentEl.innerHTML = text;
+  
+  var anchors = parentEl.getElementsByTagName('a');
+  for (let el of anchors) {
+    var name = el.innerText;
+    var url = el.getAttribute('href');
     if (!(url.startsWith('http:') || url.startsWith('https:')))
     {
       url = addUrlToPath(url, path);
     }
-        
     if (name.startsWith('.')) {
     } else if (name.endsWith('/')) {
       onDirectory(url,name);
@@ -240,9 +233,6 @@ function parseTextLinesWithPath(text, path, onDirectory, onFile, onImage) {
       image = name;
     } else {
     }
-  }
-  if (image) {
-    onImage(image);
   }
 }
 
