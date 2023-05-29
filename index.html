@@ -20,7 +20,7 @@
           <span id="transport_pause">⏸</span>
           <span id="transport_previous">⏮</span>
           <span id="transport_next">⏭</span> -->
-          <audio id="player" controls="1" onended="onPlayerEnded(event)">
+          <audio id="player" controls="1" onended="onPlayerEnded(event)" onplay="playFirstItemInPlayListIfNothingSelected(event)">
         </div> <!-- end of #transport -->
       
         <div id="playing" >

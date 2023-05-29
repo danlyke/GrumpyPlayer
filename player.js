@@ -9,7 +9,7 @@ function playSong(path, name) {
   clearPlaylistActiveItems();
   markPlaylistItemActive(path);
   let el = document.getElementById('playing');
-  el.innerText = name;
+  el.innerHTML = name;
   let player = document.getElementById('player');
   player.src = path;
   player.play();
@@ -19,6 +19,8 @@ function stopSong() {
   let player = document.getElementById('player');
   player.pause();
 }
+
+
 
 
 function addImageToTitleDiv(image, div) {
@@ -72,6 +74,21 @@ function elementForDirectory(path, name) {
   };
   return el;
 }
+
+
+function playFirstItemInPlayListIfNothingSelected(event) {
+  let player = document.getElementById('player');
+  if (!player.src)  {
+    let els = document.getElementsByClassName('playlist_item');
+    if (els.length) {
+      let el = els[0];
+      let path = el.getElementsByClassName('playlist_path')[0].innerText;
+      let name = el.getElementsByClassName('playlist_title')[0].innerHTML;
+      playSong(path,name);
+    }
+  }
+}
+
 
 function playNextPlaylistItem() {
   let currentPath;
