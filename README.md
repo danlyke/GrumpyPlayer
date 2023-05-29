@@ -27,6 +27,19 @@ Known bugs:
 
 2. Kinda clumsy with playing stop and start vs the playlist.
 
+## Installation
 
+Clone into a directory on your HTTP server. Symlink ./Music to your
+music folder.
+
+For HTTP servers, I developed it with `python3 -m http.server` and
+deployed it on Apache.
+
+On Apache you might have to turn on FollowSymLinks and Indexes.
+
+## Use
+
+Click on a folder or file to add it to the playlist. Click on a file
+in the playlist to play.
 
 
