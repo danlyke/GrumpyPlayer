@@ -253,7 +253,7 @@ function parseTextLinesWithPath(text, path, onDirectory, onFile, onImage) {
     if (name.startsWith('.')) {
     } else if (name.endsWith('/')) {
       onDirectory(url,name);
-    } else if (name.endsWith('.mp3')) {
+    } else if (name.endsWith('.mp3') || name.endsWith('.m4a')) {
       onFile(url,name.substr(0, name.length - 4));
     } else if (name == "AlbumArtSmall.jpg") {
       image = name;
